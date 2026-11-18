@@ -1,0 +1,26 @@
+{
+  "name": "mini-cms",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mini CMS - landing page, dashboard admin, dan manajemen artikel",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev -w server",
+    "dev:client": "npm run dev -w client",
+    "build": "npm run build -w client",
+    "db:migrate": "npm run migrate -w server",
+    "seed:admin": "npm run seed:admin -w server",
+    "test": "npm run test -w server"
+  },
+  "devDependencies": {
+    "concurrently": "10.0.7"
+  }
+}
